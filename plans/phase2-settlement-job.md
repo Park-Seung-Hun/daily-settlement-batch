@@ -1,5 +1,32 @@
 # Phase 2: Daily Settlement Job
 
+## Progress
+
+### ADR-005: RepositoryItemReader + QueryDSL Custom Repository
+- [ ] `MerchantSettlementDto.java` (사전 집계 DTO)
+- [ ] `OrderRepositoryCustom.java` + `OrderRepositoryImpl.java`
+- [ ] `OrderRepositoryTest.java`
+
+### ADR-006: UPSERT — JPA save + INSERT ON CONFLICT
+- [ ] `DailySettlementRepository` UPSERT 네이티브 쿼리
+- [ ] UPSERT 멱등성 테스트
+
+### ADR-007: Skip on ValidationException
+- [ ] `ValidationException.java`
+- [ ] `SettlementSkipListener.java` (skip 건 수집)
+- [ ] errorIsolationStep (SettlementError 저장)
+
+### ADR-008: Exponential Backoff Retry
+- [ ] Retry policy 설정 (TransientDataAccessException, 3회)
+
+### Integration
+- [ ] `SettlementProcessor.java` (검증 + 변환)
+- [ ] `SettlementStepListener.java` (step 로깅)
+- [ ] `OutboxCreationProcessor.java` + outboxCreationStep
+- [ ] `DailySettlementJobConfig.java` (3 Steps 통합)
+- [ ] `DailySettlementJobIntegrationTest.java`
+- [ ] `SettlementProcessorTest.java`
+
 ## Goal
 
 핵심 정산 배치 Job을 구현한다. Reader에서 GROUP BY로 사전 집계된 데이터를 Processor에서 검증하고, UPSERT Writer로 멱등성을 보장하며, Outbox Step으로 외부 전송 대기열을 생성한다.

@@ -1,5 +1,26 @@
 # Phase 4: Production-Grade Enhancements
 
+## Progress
+
+### ADR-012: settlement_date 기반 파티셔닝
+- [ ] `DateRangePartitioner.java`
+- [ ] `DailySettlementJobConfig.java` 파티셔닝 적용 (Manager Step)
+- [ ] `DateRangePartitionerTest.java`
+- [ ] `PartitionedSettlementJobIntegrationTest.java`
+
+### ADR-013: Virtual Thread Executor
+- [ ] `BatchExecutorConfig.java` (SimpleAsyncTaskExecutor + virtualThreads)
+
+### ADR-014: @Scheduled + JobOperator 오케스트레이션
+- [ ] `SettlementScheduler.java` (cron + 순차 실행)
+- [ ] `SettlementSchedulerIntegrationTest.java`
+
+### ADR-015: Actuator + 커스텀 REST
+- [ ] `build.gradle` web/actuator 의존성 추가
+- [ ] `BatchMonitoringController.java`
+- [ ] `application.yaml` actuator/settlement 설정
+- [ ] `BatchMonitoringControllerIntegrationTest.java`
+
 ## Goal
 
 파티셔닝으로 처리 성능을 확장하고, Virtual Thread executor로 I/O 병렬성을 높이며, 스케줄링과 모니터링 API로 운영 자동화를 완성한다.
