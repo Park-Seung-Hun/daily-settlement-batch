@@ -19,9 +19,43 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
+    // Spring Batch (JDBC metadata)
+    implementation 'org.springframework.boot:spring-boot-starter-batch-jdbc'
+
+    // Spring Data JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Flyway
+    implementation 'org.springframework.boot:spring-boot-starter-flyway'
+    implementation 'org.flywaydb:flyway-database-postgresql'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    // QueryDSL
+    implementation 'com.querydsl:querydsl-jpa:5.1.0:jakarta'
+    annotationProcessor 'com.querydsl:querydsl-apt:5.1.0:jakarta'
+    annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
+    annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
+
+    // PostgreSQL
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
+    testImplementation 'org.springframework.batch:spring-batch-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Testcontainers (integration tests)
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+    testImplementation 'org.testcontainers:testcontainers-postgresql'
+
+    // Embedded PostgreSQL — zonky (unit/slice tests)
+    testImplementation 'io.zonky.test:embedded-database-spring-test:2.7.1'
 }
 
 tasks.named('test') {
