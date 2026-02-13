@@ -1,28 +1,32 @@
+**Status: COMPLETED** (2026-02-13)
+
 # Phase 1: Infrastructure Setup and Batch Baseline
 
 ## Progress
 
 ### ADR-001: PostgreSQL 단일 DB
-- [ ] `docker-compose.yml` 생성
-- [ ] `application.yaml` DataSource 설정
+- [x] `docker-compose.yml` 생성
+- [x] `application.yaml` DataSource 설정
 
 ### ADR-002: Spring Data JPA + QueryDSL
-- [ ] `build.gradle` JPA/QueryDSL 의존성 추가
-- [ ] Entity 6개 (Order, Payment, DailySettlement, SettlementError, SyncOutbox, SyncDlq)
-- [ ] Repository 6개
+- [x] `build.gradle` JPA/QueryDSL 의존성 추가
+- [x] Entity 8개 (Merchant, Order, Payment, SettlementStaging, DailySettlement, SettlementError, SyncOutbox, SyncDlq)
+- [x] Repository 8개
 
 ### ADR-003: Flyway 스키마 마이그레이션
-- [ ] `V1__create_business_tables.sql` 작성
-- [ ] `application.yaml` Flyway 설정
+- [x] `V20260213_001__create_batch_metadata_tables.sql` 작성 (Batch 메타데이터)
+- [x] `V20260213_002__create_business_tables.sql` 작성 (8개 비즈니스 테이블)
+- [x] `application.yaml` Flyway 설정 (`ddl-auto: none`, `initialize-schema: never`)
 
 ### ADR-004: DB 테스트 이중 전략
-- [ ] `application-test.yaml` Testcontainers 설정
-- [ ] `DatabaseCleanup.java` TRUNCATE 유틸리티
-- [ ] Embedded PostgreSQL (zonky) 의존성 추가
+- [x] `application-test.yaml` Testcontainers 설정
+- [x] `DatabaseCleanup.java` TRUNCATE 유틸리티
+- [x] Embedded PostgreSQL (zonky) 의존성 추가 + `MerchantRepositoryTest` 검증
 
 ### Integration
-- [ ] `VerificationJobConfig.java` (전체 파이프라인 스모크 테스트)
-- [ ] `VerificationJobIntegrationTest.java`
+- [x] `VerificationJobConfig.java` (DB 연결 + 테이블 검증 + JPA CRUD 검증)
+- [x] `VerificationJobIntegrationTest.java`
+- [x] `./gradlew test` 전체 통과
 
 ## Goal
 
