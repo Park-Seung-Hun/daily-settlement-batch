@@ -151,6 +151,7 @@ Infrastructure setup, boilerplate, and test code may proceed autonomously follow
 - ADR에 직접 매핑되지 않는 통합 작업은 `### Integration` 아래에서 추적한다
 - Phase 내 모든 체크박스가 완료되면 Phase 파일 상단에 완료 표시를 추가한다:
   `**Status: COMPLETED** (yyyy-MM-dd)`
+- Job/Step 구조가 변경되면 `plans/flow-diagram.md`의 Mermaid 다이어그램도 함께 업데이트한다
 
 ### Code Style
 
