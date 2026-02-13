@@ -143,6 +143,16 @@ The following items **must be confirmed with the user** before implementation (d
 
 Infrastructure setup, boilerplate, and test code may proceed autonomously following conventions.
 
+### Progress Tracking
+
+- 프로젝트 계획: `plans/` 디렉토리 참조
+- 각 Phase plan 파일 상단에 `## Progress` 섹션이 ADR 단위 체크리스트로 존재한다
+- **작업 완료 시** 해당 ADR 아래 체크박스를 `[x]`로 업데이트한다
+- ADR에 직접 매핑되지 않는 통합 작업은 `### Integration` 아래에서 추적한다
+- Phase 내 모든 체크박스가 완료되면 Phase 파일 상단에 완료 표시를 추가한다:
+  `**Status: COMPLETED** (yyyy-MM-dd)`
+- Job/Step 구조가 변경되면 `plans/flow-diagram.md`의 Mermaid 다이어그램도 함께 업데이트한다
+
 ### Code Style
 
 - Constructor injection only (no field `@Autowired`)
@@ -194,7 +204,7 @@ git merge --no-ff feature/phase1-infra-setup
 | `fix`      | 버그 수정                             |
 | `refactor` | 동작 변경 없는 구조 개선              |
 | `test`     | 테스트 추가/수정                      |
-| `docs`     | 문서 변경 (CLAUDE.md, plan/, README)  |
+| `docs`     | 문서 변경 (CLAUDE.md, plans/, README) |
 | `chore`    | 빌드 설정, 의존성, CI/CD             |
 | `schema`   | Flyway 마이그레이션, DB 스키마 변경   |
 

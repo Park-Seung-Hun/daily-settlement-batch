@@ -1,5 +1,29 @@
 # Phase 1: Infrastructure Setup and Batch Baseline
 
+## Progress
+
+### ADR-001: PostgreSQL 단일 DB
+- [ ] `docker-compose.yml` 생성
+- [ ] `application.yaml` DataSource 설정
+
+### ADR-002: Spring Data JPA + QueryDSL
+- [ ] `build.gradle` JPA/QueryDSL 의존성 추가
+- [ ] Entity 6개 (Order, Payment, DailySettlement, SettlementError, SyncOutbox, SyncDlq)
+- [ ] Repository 6개
+
+### ADR-003: Flyway 스키마 마이그레이션
+- [ ] `V1__create_business_tables.sql` 작성
+- [ ] `application.yaml` Flyway 설정
+
+### ADR-004: DB 테스트 이중 전략
+- [ ] `application-test.yaml` Testcontainers 설정
+- [ ] `DatabaseCleanup.java` TRUNCATE 유틸리티
+- [ ] Embedded PostgreSQL (zonky) 의존성 추가
+
+### Integration
+- [ ] `VerificationJobConfig.java` (전체 파이프라인 스모크 테스트)
+- [ ] `VerificationJobIntegrationTest.java`
+
 ## Goal
 
 Docker PostgreSQL + Flyway + JPA Entity + Spring Batch 연동을 완료하고, 검증 Job으로 전체 파이프라인이 정상 동작하는지 확인한다.
