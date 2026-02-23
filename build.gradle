@@ -41,6 +41,12 @@ dependencies {
     annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
     annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
 
+    // Blaze-Persistence (CTE support)
+    ext.blazeVersion = '1.6.18'
+    implementation "com.blazebit:blaze-persistence-core-api-jakarta:${blazeVersion}"
+    runtimeOnly "com.blazebit:blaze-persistence-core-impl-jakarta:${blazeVersion}"
+    runtimeOnly "com.blazebit:blaze-persistence-integration-hibernate-7.2:${blazeVersion}"
+
     // PostgreSQL
     runtimeOnly 'org.postgresql:postgresql'
 
