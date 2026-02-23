@@ -53,7 +53,7 @@ public class SettlementProcessor implements ItemProcessor<MerchantSettlementDto,
             throw new ValidationException(
                     "MISSING_PAYMENT",
                     dto.merchantId(),
-                    "totalPaymentAmount is null or zero"
+                    "{\"message\": \"totalPaymentAmount is null or zero\"}"
             );
         }
 
@@ -65,7 +65,7 @@ public class SettlementProcessor implements ItemProcessor<MerchantSettlementDto,
             throw new ValidationException(
                     "AMOUNT_MISMATCH",
                     dto.merchantId(),
-                    String.format("totalOrderAmount=%s, totalPaymentAmount=%s, diff=%s",
+                    String.format("{\"totalOrderAmount\": \"%s\", \"totalPaymentAmount\": \"%s\", \"diff\": \"%s\"}",
                             dto.totalOrderAmount(), dto.totalPaymentAmount(), diff)
             );
         }

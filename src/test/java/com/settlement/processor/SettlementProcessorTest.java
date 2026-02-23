@@ -124,7 +124,7 @@ class SettlementProcessorTest {
                     ValidationException ve = (ValidationException) ex;
                     assertThat(ve.getErrorType()).isEqualTo("AMOUNT_MISMATCH");
                     assertThat(ve.getMerchantId()).isEqualTo(4L);
-                    assertThat(ve.getErrorDetail()).contains("diff=2000.00");
+                    assertThat(ve.getErrorDetail()).contains("\"diff\": \"2000.00\"");
                 });
     }
 
