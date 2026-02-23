@@ -3,29 +3,29 @@
 ## Progress
 
 ### ADR-005: RepositoryItemReader + QueryDSL Custom Repository
-- [ ] `MerchantSettlementDto.java` (사전 집계 DTO)
-- [ ] `OrderRepositoryCustom.java` + `OrderRepositoryImpl.java`
-- [ ] `OrderRepositoryTest.java`
+- [x] `MerchantSettlementDto.java` (사전 집계 DTO)
+- [x] `OrderRepositoryCustom.java` + `OrderRepositoryImpl.java`
+- [x] `OrderRepositoryTest.java`
 
 ### ADR-006: UPSERT — JPA save + INSERT ON CONFLICT
-- [ ] `DailySettlementRepository` UPSERT 네이티브 쿼리
-- [ ] UPSERT 멱등성 테스트
+- [x] `DailySettlementRepository` UPSERT 네이티브 쿼리
+- [x] UPSERT 멱등성 테스트
 
 ### ADR-007: Skip on ValidationException
-- [ ] `ValidationException.java`
-- [ ] `SettlementSkipListener.java` (skip 건 수집)
-- [ ] errorIsolationStep (SettlementError 저장)
+- [x] `ValidationException.java`
+- [x] `SettlementSkipListener.java` (skip 건 즉시 DB 저장 — @StepScope)
+- [x] errorIsolationStep (SettlementError 저장)
 
 ### ADR-008: Exponential Backoff Retry
 - [ ] Retry policy 설정 (TransientDataAccessException, 3회)
 
 ### Integration
-- [ ] `SettlementProcessor.java` (검증 + 변환)
-- [ ] `SettlementStepListener.java` (step 로깅)
+- [x] `SettlementProcessor.java` (검증 + 변환)
+- [x] `SettlementStepListener.java` (step 로깅)
 - [ ] `OutboxCreationProcessor.java` + outboxCreationStep
-- [ ] `DailySettlementJobConfig.java` (3 Steps 통합)
-- [ ] `DailySettlementJobIntegrationTest.java`
-- [ ] `SettlementProcessorTest.java`
+- [x] `DailySettlementJobConfig.java` (2 Steps 통합)
+- [x] `DailySettlementJobIntegrationTest.java` (5 scenarios GREEN)
+- [x] `SettlementProcessorTest.java`
 
 ## Goal
 
